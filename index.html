@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Real Estate - Gjeni Pronën e Ëndrrave Tuaja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <div class="logo">
+      <a href="index.html"><span class="logo-text">Pro Real Estate</span></a>
+    </div>
+    <nav>
+      <a href="index.html" class="active" data-i18n="nav.pronesia">Pronat</a>
+      <a href="rreth-nesh.html" data-i18n="nav.rreth">Rreth nesh</a>
+      <a href="kontakti.html" data-i18n="nav.kontakti">Kontakti</a>
+      <a href="ofro-pronen.html" data-i18n="nav.ofro">Ofro pronën</a>
+      <a href="krijo-kerkese.html" data-i18n="nav.krijo">Krijo kërkesë</a>
+    </nav>
+    <div class="header-actions">
+      <a href="favoritet.html" class="fav-btn">&#9825;</a>
+      <div class="langs">
+        <a href="#" data-lang="sq" class="active">SQ</a>
+        <a href="#" data-lang="en">EN</a>
+        <a href="#" data-lang="de">DE</a>
+      </div>
+      <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('open')">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<div class="hero" style="padding-bottom: 100px;">
+  <h1 data-i18n="hero.title">Gjeni <span>Pronën</span> e Ëndrrave Tuaja</h1>
+  <p data-i18n="hero.sub">Pro Real Estate ju ndihmon të gjeni pronën e përsosur për ju në të gjithë Kosovën.</p>
+  
+</div>
+
+<div class="filters">
+  <div class="filter-box">
+    <div class="search-bar">
+      <input type="text" data-i18n="search.placeholder" placeholder="Kërko prona sipas emrit, lokacionit, çmimit...">
+      <button class="search-btn">&#128269;</button>
+    </div>
+    <div class="filter-divider"></div>
+    <div class="filter-row">
+      <div class="filter-group">
+        <label data-i18n="filter.lloji">Lloji</label>
+        <select class="filter-type">
+          <option value="all" data-i18n="filter.te_gjitha">Të gjitha</option>
+          <option value="shitje" data-i18n="filter.neshitje">Në shitje</option>
+          <option value="qira" data-i18n="filter.qira">Me qira</option>
+          <option value="ekskluzive" data-i18n="filter.ekskluzive">Ekskluzive</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label data-i18n="filter.kategorite">Kategoritë</label>
+        <select class="filter-cat">
+          <option value="all" data-i18n="filter.te_gjitha">Të gjitha</option>
+          <option value="shtepi" data-i18n="filter.shtepi">Shtëpi</option>
+          <option value="banesa" data-i18n="filter.banesa">Banesa</option>
+          <option value="zyre" data-i18n="filter.zyre">Zyre</option>
+          <option value="lokale" data-i18n="filter.lokale">Lokale</option>
+          <option value="troje" data-i18n="filter.troje">Troje</option>
+          <option value="depo" data-i18n="filter.depo">Depo</option>
+          <option value="objekte" data-i18n="filter.objekte">Objekte</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label data-i18n="filter.cmimi">Çmimi</label>
+        <select>
+          <option value="all" data-i18n="filter.cmimet">Të gjitha çmimet</option>
+          <option value="0-50000">&euro;0 - &euro;50,000</option>
+          <option value="50000-100000">&euro;50,000 - &euro;100,000</option>
+          <option value="100000-200000">&euro;100,000 - &euro;200,000</option>
+          <option value="200000-500000">&euro;200,000 - &euro;500,000</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label data-i18n="filter.siperfaqja">Sipërfaqja</label>
+        <select>
+          <option value="all" data-i18n="filter.siperfaqet">Të gjitha sipërfaqet</option>
+          <option value="0-50">0 - 50 m²</option>
+          <option value="50-100">50 - 100 m²</option>
+          <option value="100-200">100 - 200 m²</option>
+          <option value="200-9999">200+ m²</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label data-i18n="filter.lokacioni">Lokacioni</label>
+        <select>
+          <option value="all" data-i18n="filter.te_gjitha">Të gjitha</option>
+          <option value="Prishtinë">Prishtinë</option>
+          <option value="Prizren">Prizren</option>
+          <option value="Ferizaj">Ferizaj</option>
+          <option value="Pejë">Pejë</option>
+          <option value="Gjakovë">Gjakovë</option>
+          <option value="Gjilan">Gjilan</option>
+          <option value="Mitrovicë">Mitrovicë</option>
+          <option value="Vushtrri">Vushtrri</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-outline" data-i18n="filter.pastro">Pastro</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="carousel-section">
+
+  <div class="carousel" id="propertyCarousel">
+    <button class="carousel-btn carousel-prev" id="carouselPrev">&#10094;</button>
+    <div class="carousel-viewport">
+      <div class="carousel-track" id="carouselTrack">
+  </div>
+  </div>
+  <button class="carousel-btn carousel-next" id="carouselNext">&#10095;</button>
+  <div class="carousel-dots" id="carouselDots"></div>
+</div>
+</div>
+
+<div class="props-header">
+  <h2 data-i18n="props.title">Pronat në dispozicion</h2>
+  <span>16 <span data-i18n="props.count">prona</span></span>
+</div>
+
+<div class="grid" id="propertyGrid">
+  <a href="produkt.html?id=1" class="card" data-type="shitje" data-category="shtepi" data-price="250000" data-area="180" data-location="Prishtinë">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Vilë moderne në Prishtinë">
+      <span class="badge badge-red" data-i18n="badge.sale">Në shitje</span>
+      <span class="heart" data-id="1">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;250,000</div>
+      <h3>Vilë moderne në Prishtinë</h3>
+      <div class="loc">&#9906; Prishtinë</div>
+      <div class="feats">
+        <span>&#8962; 4 <span data-i18n="card.dhoma">dhoma</span></span>
+        <span>&#128703; 3 <span data-i18n="card.banjo">banjo</span></span>
+        <span>&#9641; 180 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=2" class="card" data-type="qira" data-category="banesa" data-price="850" data-area="75" data-location="Prishtinë">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80" alt="Banesë luksoze në qendër">
+      <span class="badge badge-blue" data-i18n="badge.rent">Me qira</span>
+      <span class="heart" data-id="2">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;850 <small data-i18n="card.muaj">/muaj</small></div>
+      <h3>Banesë luksoze në qendër</h3>
+      <div class="loc">&#9906; Prishtinë</div>
+      <div class="feats">
+        <span>&#8962; 2 <span data-i18n="card.dhoma">dhoma</span></span>
+        <span>&#128703; 1 <span data-i18n="card.banjo">banjo</span></span>
+        <span>&#9641; 75 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=3" class="card" data-type="shitje" data-category="shtepi" data-price="180000" data-area="150" data-location="Prizren">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Shtëpi familjare në Prizren">
+      <span class="badge badge-red" data-i18n="badge.sale">Në shitje</span>
+      <span class="heart" data-id="3">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;180,000</div>
+      <h3>Shtëpi familjare në Prizren</h3>
+      <div class="loc">&#9906; Prizren</div>
+      <div class="feats">
+        <span>&#8962; 3 <span data-i18n="card.dhoma">dhoma</span></span>
+        <span>&#128703; 2 <span data-i18n="card.banjo">banjo</span></span>
+        <span>&#9641; 150 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=4" class="card" data-type="qira" data-category="lokale" data-price="1200" data-area="90" data-location="Ferizaj">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Lokal komercial në Ferizaj">
+      <span class="badge badge-blue" data-i18n="badge.rent">Me qira</span>
+      <span class="heart" data-id="4">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;1,200 <small data-i18n="card.muaj">/muaj</small></div>
+      <h3>Lokal komercial në Ferizaj</h3>
+      <div class="loc">&#9906; Ferizaj</div>
+      <div class="feats">
+        <span>&#128703; 1 <span data-i18n="card.banjo">banjo</span></span>
+        <span>&#9641; 90 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=5" class="card" data-type="shitje" data-category="troje" data-price="95000" data-area="400" data-location="Pejë">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="Troje për ndërtim në Pejë">
+      <span class="badge badge-red" data-i18n="badge.sale">Në shitje</span>
+      <span class="heart" data-id="5">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;95,000</div>
+      <h3>Troje për ndërtim në Pejë</h3>
+      <div class="loc">&#9906; Pejë</div>
+      <div class="feats">
+        <span>&#9641; 400 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=6" class="card" data-type="ekskluzive" data-category="banesa" data-price="380000" data-area="200" data-location="Prishtinë">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Penthouse ekskluziv në Prishtinë">
+      <span class="badge badge-gold" data-i18n="badge.exclusive">Ekskluzive</span>
+      <span class="heart" data-id="6">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;380,000</div>
+      <h3>Penthouse ekskluziv në Prishtinë</h3>
+      <div class="loc">&#9906; Prishtinë</div>
+      <div class="feats">
+        <span>&#8962; 5 <span data-i18n="card.dhoma">dhoma</span></span>
+        <span>&#128703; 4 <span data-i18n="card.banjo">banjo</span></span>
+        <span>&#9641; 200 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=7" class="card" data-type="qira" data-category="zyre" data-price="700" data-area="60" data-location="Gjakovë">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80" alt="Zyre moderne në Gjakovë">
+      <span class="badge badge-blue" data-i18n="badge.rent">Me qira</span>
+      <span class="heart" data-id="7">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;700 <small data-i18n="card.muaj">/muaj</small></div>
+      <h3>Zyre moderne në Gjakovë</h3>
+      <div class="loc">&#9906; Gjakovë</div>
+      <div class="feats">
+        <span>&#128703; 1 <span data-i18n="card.banjo">banjo</span></span>
+        <span>&#9641; 60 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=8" class="card" data-type="shitje" data-category="depo" data-price="130000" data-area="350" data-location="Mitrovicë">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="Depo e madhe në Mitrovicë">
+      <span class="badge badge-red" data-i18n="badge.sale">Në shitje</span>
+      <span class="heart" data-id="8">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;130,000</div>
+      <h3>Depo e madhe në Mitrovicë</h3>
+      <div class="loc">&#9906; Mitrovicë</div>
+      <div class="feats">
+        <span>&#128703; 1 <span data-i18n="card.banjo">banjo</span></span>
+        <span>&#9641; 350 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=9" class="card" data-type="shitje" data-category="banesa" data-price="65000" data-area="65" data-location="Gjilan">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Banesë e re në Gjilan">
+      <span class="badge badge-red" data-i18n="badge.sale">Në shitje</span>
+      <span class="heart" data-id="9">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;65,000</div>
+      <h3>Banesë e re në Gjilan</h3>
+      <div class="loc">&#9906; Gjilan</div>
+      <div class="feats">
+        <span>&#8962; 2 <span data-i18n="card.dhoma">dhoma</span></span>
+        <span>&#128703; 1 <span data-i18n="card.banjo">banjo</span></span>
+        <span>&#9641; 65 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=10" class="card" data-type="shitje" data-category="shtepi" data-price="320000" data-area="220" data-location="Vushtrri">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Vilë moderne në Vushtrri">
+      <span class="badge badge-red" data-i18n="badge.sale">Në shitje</span>
+      <span class="heart" data-id="10">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;320,000</div>
+      <h3>Vilë moderne në Vushtrri</h3>
+      <div class="loc">&#9906; Vushtrri</div>
+      <div class="feats">
+        <span>&#8962; 5 <span data-i18n="card.dhoma">dhoma</span></span>
+        <span>&#128703; 3 <span data-i18n="card.banjo">banjo</span></span>
+        <span>&#9641; 220 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=11" class="card" data-type="qira" data-category="banesa" data-price="600" data-area="60" data-location="Suharekë">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80" alt="Banesë komode në Suharekë">
+      <span class="badge badge-blue" data-i18n="badge.rent">Me qira</span>
+      <span class="heart" data-id="11">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;600 <small data-i18n="card.muaj">/muaj</small></div>
+      <h3>Banesë komode në Suharekë</h3>
+      <div class="loc">&#9906; Suharekë</div>
+      <div class="feats">
+        <span>&#8962; 2 <span data-i18n="card.dhoma">dhoma</span></span>
+        <span>&#128703; 1 <span data-i18n="card.banjo">banjo</span></span>
+        <span>&#9641; 60 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=12" class="card" data-type="qira" data-category="banesa" data-price="1500" data-area="120" data-location="Prishtinë">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80" alt="Hapësirë për zyre në Prishtinë">
+      <span class="badge badge-blue" data-i18n="badge.rent">Me qira</span>
+      <span class="heart" data-id="12">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;1,500 <small data-i18n="card.muaj">/muaj</small></div>
+      <h3>Hapësirë për zyre në Prishtinë</h3>
+      <div class="loc">&#9906; Prishtinë</div>
+      <div class="feats">
+        <span>&#128703; 2 <span data-i18n="card.banjo">banjo</span></span>
+        <span>&#9641; 120 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=13" class="card" data-type="shitje" data-category="troje" data-price="78000" data-area="500" data-location="Vushtrri">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="Troje për ndërtim në Vushtrri">
+      <span class="badge badge-red" data-i18n="badge.sale">Në shitje</span>
+      <span class="heart" data-id="13">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;78,000</div>
+      <h3>Troje për ndërtim në Vushtrri</h3>
+      <div class="loc">&#9906; Vushtrri</div>
+      <div class="feats">
+        <span>&#9641; 500 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=14" class="card" data-type="shitje" data-category="troje" data-price="200000" data-area="600" data-location="Ferizaj">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="Depo dhe hapësirë prodhimi në Ferizaj">
+      <span class="badge badge-red" data-i18n="badge.sale">Në shitje</span>
+      <span class="heart" data-id="14">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;200,000</div>
+      <h3>Depo dhe hapësirë prodhimi në Ferizaj</h3>
+      <div class="loc">&#9906; Ferizaj</div>
+      <div class="feats">
+        <span>&#128703; 1 <span data-i18n="card.banjo">banjo</span></span>
+        <span>&#9641; 600 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=15" class="card" data-type="shitje" data-category="shtepi" data-price="550000" data-area="350" data-location="Prishtinë">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Vilë luksoze me pishinë në Prishtinë">
+      <span class="badge badge-gold" data-i18n="badge.exclusive">Ekskluzive</span>
+      <span class="heart" data-id="15">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;550,000</div>
+      <h3>Vilë luksoze me pishinë në Prishtinë</h3>
+      <div class="loc">&#9906; Prishtinë</div>
+      <div class="feats">
+        <span>&#8962; 6 <span data-i18n="card.dhoma">dhoma</span></span>
+        <span>&#128703; 4 <span data-i18n="card.banjo">banjo</span></span>
+        <span>&#9641; 350 m²</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="produkt.html?id=16" class="card" data-type="qira" data-category="shtepi" data-price="450" data-area="80" data-location="Malishevë">
+    <div class="card-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Shtëpi e vogël në Malishevë">
+      <span class="badge badge-blue" data-i18n="badge.rent">Me qira</span>
+      <span class="heart" data-id="16">&#9825;</span>
+    </div>
+    <div class="card-body">
+      <div class="price">&euro;450 <small data-i18n="card.muaj">/muaj</small></div>
+      <h3>Shtëpi e vogël në Malishevë</h3>
+      <div class="loc">&#9906; Malishevë</div>
+      <div class="feats">
+        <span>&#8962; 2 <span data-i18n="card.dhoma">dhoma</span></span>
+        <span>&#128703; 1 <span data-i18n="card.banjo">banjo</span></span>
+        <span>&#9641; 80 m²</span>
+      </div>
+    </div>
+  </a>
+</div>
+<div class="no-results" id="noResults" style="display:none">
+  <strong data-i18n="noresults.title">Nuk u gjet asnjë pronë</strong>
+  <p data-i18n="noresults.sub">Provoni të ndryshoni kriteret e kërkimit ose të filtrit.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>Pro Real Estate</h4>
+      <p data-i18n="footer.desc">Kur zgjidhni një kompani për patundshmëri, është e rëndësishme të keni një ekip profesional në krah. Ne ju ofrojmë mbështetje të plotë në çdo hap, qoftë për shitje, blerje apo qira të pronës suaj, duke trajtuar gjithçka me kujdes dhe profesionalizëm.</p>
+    </div>
+    <div>
+      <h4 data-i18n="footer.kompania">Kompania</h4>
+      <a href="index.html" data-i18n="nav.pronesia">Pronat</a>
+      <a href="rreth-nesh.html" data-i18n="nav.rreth">Rreth nesh</a>
+      <a href="kontakti.html" data-i18n="nav.kontakti">Kontakti</a>
+    </div>
+    <div>
+      <h4 data-i18n="footer.tjera">Tjera</h4>
+      <a href="ofro-pronen.html" data-i18n="footer.ofro">Ofro pronën</a>
+      <a href="krijo-kerkese.html" data-i18n="footer.krijo">Krijo kërkesë</a>
+      <a href="#" data-i18n="footer.faqe">Pyetjet e shpeshta</a>
+    </div>
+    <div>
+      <h4 data-i18n="footer.ligjore">Ligjore</h4>
+      <a href="#" data-i18n="footer.termat">Termat &amp; Kushtet</a>
+      <a href="#" data-i18n="footer.privacy">Politika e Privatësisë</a>
+    </div>
+    <div>
+      <h4 data-i18n="footer.kontakti">Kontakti</h4>
+      <div class="footer-row"><span class="ico">&#9993;</span> <span>info@prorealestate-ks.com</span></div>
+      <div class="footer-row"><span class="ico">&#9906;</span> <span>Rruga Tirana, Objekti C4/1-nr.5, Prishtinë</span></div>
+      <div class="footer-row"><span class="ico">&#9742;</span> <span>+383 (44) 888-444</span></div>
+      <div class="social">
+           <a href="https://www.facebook.com/proreal.rks">fb</a>
+        <a href="https://www.instagram.com/pro.realestate/?hl=en">ig</a>
+        <a href="https://www.tiktok.com/@prorealestate.rks">tk</a>
+        <a href="https://www.youtube.com/@ProRealEstate-Kompaniap%C3%ABrPatun">yt</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span data-i18n="footer.copyright">© 2026 PRO REAL ESTATE. Të gjitha të drejtat e rezervuara.</span>
+    <span data-i18n="footer.tagline">Pro Real Estate - Gjeni Pronën e Ëndrrave Tuaja</span>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
